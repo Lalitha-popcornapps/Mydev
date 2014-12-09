@@ -1,0 +1,5 @@
+<apex:page controller="jsoncls1">
+<apex:form >
+<apex:commandButton value="Acceptance" action="{!acceptmeth}"/>
+</apex:form>
+</apex:page>

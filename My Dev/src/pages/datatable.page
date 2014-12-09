@@ -1,0 +1,5 @@
+<apex:page standardController="account" recordSetVar="pbt">
+  <apex:dataTable value="{!pbt}" var="p">
+     <apex:column value="{!p.name}"/>
+  </apex:dataTable>
+</apex:page>

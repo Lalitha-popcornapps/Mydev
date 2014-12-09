@@ -1,0 +1,14 @@
+<apex:page >
+<script>
+function getname(url){
+
+    var m = url.match(/^http:\/\/[^.]+/);
+    alert(m);
+   
+    
+}
+</script>
+<apex:form >
+<apex:commandButton value="Get Name" onclick="getname('http://example.com/path')"/>
+</apex:form>
+</apex:page>

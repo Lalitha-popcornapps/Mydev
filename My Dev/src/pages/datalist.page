@@ -1,0 +1,5 @@
+<apex:page standardController="account" recordSetVar="pbt">
+<apex:dataList value="{!pbt}" var="p">
+{!p.name}
+</apex:dataList>
+</apex:page>

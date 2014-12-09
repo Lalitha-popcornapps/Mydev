@@ -1,0 +1,37 @@
+<apex:page controller="multiselect">
+
+<c:myComponent componentValue="Hi there, {!$User.FirstName}" />
+    <apex:form >
+    {!front}
+        <apex:selectList value="{!countries}" multiselect="true">
+            <apex:selectOptions value="{!items}"/>
+        </apex:selectList><p/>
+
+        <apex:commandButton value="Test" action="{!test}" rerender="out" status="status"/>
+    </apex:form>
+   <apex:outputPanel >
+    <ul>
+        <knowledge:articleList articleVar="article"
+            categories="Hardware:Accessories"
+            
+            pageSize="10"
+        >
+            <li><a href="{!URLFOR($Action.KnowledgeArticle.View, article.id)}">{!article.title}</a></li>
+        </knowledge:articleList>
+    </ul>
+</apex:outputPanel>
+
+    <apex:outputPanel id="out">
+        <apex:actionstatus id="status" startText="testing...">
+            <apex:facet name="stop">
+                <apex:outputPanel >
+                    <p>You have selected:</p>
+                    <apex:dataList value="{!countries}" var="c">{!c}</apex:dataList>
+                </apex:outputPanel>
+            </apex:facet>
+        </apex:actionstatus>
+    </apex:outputPanel>
+    
+    
+    
+</apex:page>

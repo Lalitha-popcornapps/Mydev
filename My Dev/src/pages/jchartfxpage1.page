@@ -1,0 +1,34 @@
+<apex:page sidebar="false" showHeader="false" >
+  <head>
+<script>
+chart1.setGallery(cfx.Gallery.Surface);
+chart1.getView3D().setEnabled(true);
+var nSeries;
+nSeries = 20;
+var nPoints;
+nPoints = 20;
+var data = chart1.getData();
+data.setSeries(nSeries);
+data.setPoints(nPoints);
+var i;
+var j;
+for(i = 0;i < nSeries;i++)
+{
+    for(j = 0;j < nPoints;j++)
+    {
+        data.setItem(i, j, Math.sin((((i * 2) * Math.PI) / (nSeries-1))) * Math.cos(((((j + 5) * 2) * Math.PI) / (nPoints-1))) * 100);
+    }
+}
+
+chart1.getSeries().getItem(0).setColor("#FFFF00");
+chart1.getSeries().getItem(0).setAlternateColor("#FF0000");
+
+</script>
+</head>
+
+<body onload="loadChart()">
+
+<div id="ChartDiv" style="width:600px;height:400px"></div>
+
+</body>
+</apex:page>

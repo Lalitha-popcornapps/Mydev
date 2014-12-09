@@ -1,0 +1,14 @@
+<apex:page controller="articletypescls">
+  <apex:outputPanel >
+    <ul>
+        <knowledge:articleList articleVar="article"
+            articleTypes="FAQ__kav, How_To__kav,Troubleshooting__kav"
+            categories="Hardware:Cable"
+            sortBy="mostViewed"
+            pageSize="10"
+        >
+            <li><a href="{!URLFOR($Action.KnowledgeArticle.View, article.id)}">{!article.title}</a></li>
+        </knowledge:articleList>
+    </ul>
+</apex:outputPanel>
+</apex:page>

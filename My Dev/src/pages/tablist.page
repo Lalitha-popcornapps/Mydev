@@ -1,0 +1,26 @@
+<apex:page controller="ClientTabController">
+    <apex:form >
+    <li><a href="#">My Tabs</a>
+    <ul>
+        <li>
+            <apex:commandLink value="My Favorite" rerender="tab_pannel">
+                <apex:param assignTo="{!ActiveTab}" value="fav"/>
+            </apex:commandLink>
+        </li>
+        <li>
+            <apex:commandLink value="My Recommendation" rerender="tab_pannel">
+                <apex:param assignTo="{!ActiveTab}" value="rec"/>
+            </apex:commandLink>
+        </li>
+    </ul>
+    </li>
+    <apex:tabPanel switchType="server" value="{!ActiveTab}" id="tab_pannel">
+        <apex:tab label="My Favorite" name="fav" id="tabOne">
+        {!ActiveTab}
+        </apex:tab>
+        <apex:tab label="My Recommendation" name="rec" id="tabtwo">
+        {!ActiveTab}
+        </apex:tab>
+    </apex:tabPanel>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,21 @@
+<apex:page controller="pop_selectlistcls">
+ <apex:form >
+ Name <apex:inputText value="{!name}"/><br/>
+ company <apex:inputText value="{!company}"/><br/>
+ field1 <apex:selectList value="{!selected}" size="1">
+ <apex:selectOption itemValue="good"/>
+ <apex:selectOption itemValue="better"/>
+ <apex:selectOption itemValue="best"/>
+ </apex:selectList><br/>
+ field2 <apex:selectList value="{!selected11}" size="1">
+ <apex:selectOption itemValue="cool"/>
+ <apex:selectOption itemValue="hot"/>
+ <apex:selectOption itemValue="very hot"/>
+ </apex:selectList><br/>
+  field3 <apex:selectList value="{!selected22}" size="1">
+ <apex:selectOption itemValue="purple"/>
+ <apex:selectOption itemValue="black"/>
+ <apex:selectOption itemValue="white"/>
+ </apex:selectList><br/>
+ </apex:form>
+</apex:page>

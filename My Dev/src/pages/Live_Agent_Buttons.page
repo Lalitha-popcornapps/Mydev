@@ -1,0 +1,23 @@
+<apex:page >
+ <!--deployment code-->
+<script type='text/javascript' src='https://c.la1t1.salesforceliveagent.com/content/g/js/32.0/deployment.js'></script>
+<script type='text/javascript'>
+liveagent.init('https://d.la1t1.salesforceliveagent.com/chat', '572900000004P2J', '00D90000000pKk9');
+</script>
+
+
+<!--Test button-->
+<a id="liveagent_button_online_573900000004Q5B" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('573900000004Q5B')"> Test Online Chat Content </a><div id="liveagent_button_offline_573900000004Q5B" style="display: none;">Test Offline Chat Content </div><script type="text/javascript">
+if (!window._laq) { window._laq = []; }
+window._laq.push(function(){liveagent.showWhenOnline('573900000004Q5B', document.getElementById('liveagent_button_online_573900000004Q5B'));
+liveagent.showWhenOffline('573900000004Q5B', document.getElementById('liveagent_button_offline_573900000004Q5B'));
+});</script>
+
+
+<!-- Sample Button-->
+<a id="liveagent_button_online_573900000004PXD" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('573900000004PXD')">Sample Online Chat Content </a><div id="liveagent_button_offline_573900000004PXD" style="display: none;">Sample Offline Chat Content</div><script type="text/javascript">
+if (!window._laq) { window._laq = []; }
+window._laq.push(function(){liveagent.showWhenOnline('573900000004PXD', document.getElementById('liveagent_button_online_573900000004PXD'));
+liveagent.showWhenOffline('573900000004PXD', document.getElementById('liveagent_button_offline_573900000004PXD'));
+});</script>
+</apex:page>

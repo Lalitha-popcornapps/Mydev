@@ -1,0 +1,20 @@
+<apex:page controller="extestingcls">
+<apex:form >
+<apex:pageBlock >
+<apex:commandButton value="Select" action="{!selact}"/>&nbsp;
+<apex:commandButton value="delete" action="{!delact}"/>
+<apex:pageBlockTable value="{!recdis}" var="r">
+<apex:column headerValue="checkbox" >
+<apex:inputCheckbox value="{!r.checkbx}" />
+</apex:column>
+<apex:column value="{!r.acc.name}" />
+</apex:pageBlockTable>
+<apex:pageBlockTable value="{!recname}" var="rn">
+<apex:column headerValue="selected acc" value="{!rn.name}"/>
+</apex:pageBlockTable>
+<apex:pageBlockTable value="{!accons}" var="c">
+<apex:column headerValue="related contacts" value="{!c.name}"/>
+</apex:pageBlockTable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

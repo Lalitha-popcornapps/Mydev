@@ -1,0 +1,13 @@
+<apex:page >
+<knowledge:articleTypeList articleTypeVar="articleType">
+     {!articleType.label}<br />
+</knowledge:articleTypeList>
+
+
+    <knowledge:categoryList categoryVar="category" categoryGroup="Hardware" rootCategory="Accessories" level="-1">
+        <option value="{!category.name}">{!category.Label}</option>
+        
+    </knowledge:categoryList>
+
+
+</apex:page>

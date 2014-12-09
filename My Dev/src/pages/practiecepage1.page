@@ -1,0 +1,13 @@
+<apex:page sidebar="false" showHeader="false" >
+ <apex:form >
+ <apex:pageBlock ><div align='center'>
+ <apex:outputLabel style="font-size:30px;color:blue;margin:300px;">GOOD MORNING
+  </apex:outputLabel>
+  <apex:commandlink value="Back" action="https://c.ap1.visual.force.com/apex/practiecepage"/>
+  </div>
+  
+ <apex:image value="https://ap1.salesforce.com/resource/1389333805000/img" width="1250"/>
+ </apex:pageBlock>
+ </apex:form>
+
+</apex:page>

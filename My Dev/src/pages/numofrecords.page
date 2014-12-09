@@ -1,0 +1,7 @@
+<apex:page Controller="numfrec">
+  <apex:form >
+   <apex:repeat value="{!recset}" var="r">
+     {!r.Name}<br/>
+   </apex:repeat>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,40 @@
+<apex:page sidebar="false" title="Article List">
+<style>
+td{
+vertical-align : top;
+text-align: left;
+}
+</style>
+<apex:form >
+<apex:pageBlock title="Article List" >
+<div></div>
+<apex:panelGrid width="100%">
+<table width="99%">
+<tr>
+<th width="33%">Title</th>
+<th width="33%">Article Type</th>
+<th width="33%">Summary</th>
+</tr>
+</table>
+<knowledge:articleList articleVar="article1" hasMoreVar="false" pageSize="10">
+<table width="99%">
+<tr>
+<td width="33%">
+<apex:outputLink target="_blank" value="{!URLFOR($Action.KnowledgeArticle.View,
+article1.id,['popup' = 'true'])}">{!article1.title}</apex:outputLink>
+</td>
+<td width="33%"><apex:outputText >{!article1.articleTypeLabel}</apex:outputText></td>
+<td width="33%"><apex:outputText >{!article1.abstract}</apex:outputText></td>
+
+
+</tr>
+</table>
+</knowledge:articleList>
+<!--<knowledge:articleTypeList articleTypeVar="articleType">
+     {!articleType.label}<br />
+</knowledge:articleTypeList>-->
+</apex:panelGrid>
+</apex:pageBlock>
+</apex:form>
+<script>$('div').raty();</script>
+</apex:page>

@@ -1,0 +1,49 @@
+<apex:page controller="testcls" >
+  <body>
+  <apex:form >
+      <div style="color:#222; padding:10px;">
+        <table>
+          <tr>
+          <apex:dataTable var="w" value="{!wrp}" id="rPanel">
+           <td >
+              <apex:column style="padding-bottom:5px;" >
+                 <apex:inputCheckbox value="{!w.chck}" styleClass="css-checkbox" style="display:none;" id="checkbox"/>
+                 
+                 <apex:outputLabel styleClass="css-label" value="{!w.act.name}" for="checkbox"></apex:outputLabel>
+                 
+              </apex:column>
+           </td>
+           </apex:dataTable>
+          </tr>
+         </table>
+       </div>
+      </apex:form>
+   </body>
+   <style>
+.css-checkbox + .css-label {
+padding-left:45px;
+height:40px; 
+display:inline-block;
+line-height:40px;
+background-repeat:no-repeat;
+background-position: 0 0;
+font-size:20px;
+vertical-align:middle;
+cursor:pointer;
+}
+
+.css-checkbox:checked + .css-label {
+background-image:url(https://ap1.salesforce.com/resource/1401098748000/checkimg);
+background-size: 30px;
+}
+.css-label {
+background-image:url(https://ap1.salesforce.com/resource/1401098783000/checkimg2);
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+</style>
+</apex:page>

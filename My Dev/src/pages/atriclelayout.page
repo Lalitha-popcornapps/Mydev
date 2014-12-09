@@ -1,0 +1,26 @@
+<apex:page >
+<Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <label>Description</label>
+        <layoutColumns>
+            <layoutItems>
+                <field>description__c</field>
+            </layoutItems>
+            <layoutItems>
+                <field>dateTime__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
+    <layoutSections>
+        <label>Data Sheet</label>
+        <layoutColumns>
+            <layoutItems>
+                <field>file__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
+</Layout>
+</apex:page>

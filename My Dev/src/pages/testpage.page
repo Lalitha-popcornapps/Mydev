@@ -1,0 +1,11 @@
+<apex:page controller="testcontrolller">
+  <apex:dataTable value="{!acc}" var="a">
+  <apex:column headerValue="ids" >
+  <apex:dataTable value="{!acc}" var="a">
+  <apex:column value="{!a.name}"></apex:column>
+  </apex:dataTable>
+  </apex:column>
+  </apex:dataTable> 
+  
+  
+</apex:page>

@@ -1,0 +1,13 @@
+<apex:page standardController="How_To__kav" showHeader="false" sidebar="false">
+ <apex:pageBlock >
+        <apex:pageBlockSection title="Step1">
+            <p>Details: {!How_To__kav.Details1__c}</p>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Step2">
+            <p>Details: {!How_To__kav.Details1__c}</p>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Step3">
+            <p>Details: {!How_To__kav.Details1__c}</p>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

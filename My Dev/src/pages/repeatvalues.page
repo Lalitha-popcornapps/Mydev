@@ -1,0 +1,10 @@
+<apex:page controller="repeatcntrlr">
+
+  <apex:repeat value="{!records}" var="r" >
+ <apex:outputText value="{!r.name}"/>
+ <input type="Text" />
+ <button>Insert</button><br/>
+  </apex:repeat>
+ 
+  
+</apex:page>

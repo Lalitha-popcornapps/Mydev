@@ -1,0 +1,17 @@
+<apex:page standardController="practice__c">
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockButtons >
+<apex:commandButton value="Save" action="{!Save}"/>
+<apex:commandButton value="Save&New" action="{!Quicksave}"/>
+<apex:commandButton value="Cancel" action="{!cancel}"/>
+</apex:pageBlockButtons>
+<apex:pageBlockSection columns="1" id="ps">
+  <apex:repeat value="{!$ObjectType.practice__c.FieldSets.prctsflds}" var="f"> 
+<apex:inputField value="{!practice__c[f]}"/>
+    </apex:repeat>
+    <apex:commandLink value="Go To Another Page" action="https://c.ap1.visual.force.com/apex/practiecepage1" />
+    </apex:pageBlockSection>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,3 @@
+<apex:page standardController="account" recordSetVar="pbt">
+<apex:repeat value="{!pbt}" var="p">{!p.name}<br/></apex:repeat>
+</apex:page>

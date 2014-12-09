@@ -1,0 +1,11 @@
+<apex:page controller="jsoncls2">
+<apex:form >
+<apex:outputLabel >Name</apex:outputLabel>
+<apex:inputText value="{!lname}"/><br/>
+<apex:outputLabel >Company</apex:outputLabel>
+<apex:inputText value="{!lcompany}"/><br/>
+<apex:outputLabel >Email</apex:outputLabel>
+<apex:inputText value="{!email}"/><br/>
+<apex:commandButton value="Acceptance" action="{!acceptmeth}"/><br/>
+</apex:form>
+</apex:page>

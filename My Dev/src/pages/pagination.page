@@ -1,0 +1,27 @@
+<apex:page standardController="contact" recordSetVar="con" extensions="pagination" id="a">
+<apex:form id="ab">
+<apex:pageBlock >
+<apex:pageBlockTable value="{!con}" var="c">
+<apex:column headerValue="Refer">
+<apex:inputCheckbox value="{!c.ischecked__c}">
+<apex:actionSupport event="onclick" action="{!callmeth}">
+<apex:param name="ckb" value="{!c.ischecked__c}" assignTo="{!checkvalue}"/>
+{!checkvalue}
+</apex:actionSupport>
+</apex:inputCheckbox>
+<apex:outputPanel rendered="{!if((!c.ischecked__c),'true','false')}">
+<commadLink value="remove"/>
+</apex:outputPanel>
+</apex:column>
+<apex:column headerValue="Name">
+<apex:commandLink value="{!c.name}" action="/{!c.id}" id="abc" target="_blank">
+</apex:commandLink>
+</apex:column>
+</apex:pageBlockTable>
+<apex:commandButton value="Next" action="{!next}"/>
+<apex:commandButton value="First" action="{!first}"/>
+<apex:commandButton value="Last" action="{!last}"/>
+<apex:commandButton value="Previous" action="{!previous}"/>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

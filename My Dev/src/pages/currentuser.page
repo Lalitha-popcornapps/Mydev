@@ -1,0 +1,6 @@
+<apex:page >  
+    <apex:form >      
+        Name:{!$User.FirstName} {!$User.LastName}
+        Email:<apex:outputText value="{!$User.Email}"/>
+    </apex:form>
+</apex:page>

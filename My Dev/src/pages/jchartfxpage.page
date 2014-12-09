@@ -1,0 +1,65 @@
+<apex:page sidebar="false" showHeader="false" >
+  <head>
+
+   <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.htmltesting,'styles/jQueryUI/blitzer.css')}" />
+
+   <script type="text/javascript" src="{!URLFOR($Resource.htmltesting,'js/jchartfx.system.js')}"></script>
+
+  <script type="text/javascript" src="{!URLFOR($Resource.htmltesting,'js/jchartfx.coreBasic.js')}"></script>  
+    <script type="text/javascript" language="javascript">
+
+    var chart1;
+
+    function loadChart()
+
+      {        
+
+           chart1 = new cfx.Chart();
+
+            chart1.getData().setSeries(2);
+
+            chart1.getAxisY().setMin(10000);
+
+            chart1.getAxisY().setMax(150000);      
+
+            var series1 = chart1.getSeries().getItem(0);
+
+            var series2 = chart1.getSeries().getItem(1);
+
+            series1.setGallery(cfx.Gallery.Lines);
+
+            series2.setGallery(cfx.Gallery.Bar);
+
+            var data = [
+
+            { "year": 2001, "population": 15000 },
+
+            {  "year": 2002, "population": 20000 },
+
+            {  "year": 2003, "population": 50000 },
+
+            {  "year": 2004, "population": 90000},
+
+            {  "year": 2005, "population": 30000 },
+
+            {  "year": 2006, "population": 120000 }
+
+            ];
+
+            chart1.setDataSource(data);
+
+            var divHolder = document.getElementById('ChartDiv');
+
+        chart1.create(divHolder);            
+
+      }
+
+</script>
+</head>
+
+<body onload="loadChart()">
+
+<div id="ChartDiv" style="width:600px;height:400px"></div>
+
+</body>
+</apex:page>

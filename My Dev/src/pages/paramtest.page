@@ -1,0 +1,14 @@
+<apex:page controller="testparam">
+ <apex:form >
+          <knowledge:articleTypeList articleTypeVar="articleType">
+               <a onclick="artcletypemeth('{!articleType.name}');">{!articleType.label}
+                <!--<apex:param id="test" name="q" value="{!articleType.name}" assignTo="{!selectedarticletype}"/>-->
+                </a> <br/>
+            </knowledge:articleTypeList>
+             <apex:actionFunction action="{!artcletypequery}" name="artcletypemeth" rerender="">
+             <apex:param name="firstParam" assignTo="{!selectedarticletype}" value="" />
+             </apex:actionFunction>
+             
+            
+ </apex:form>
+</apex:page>

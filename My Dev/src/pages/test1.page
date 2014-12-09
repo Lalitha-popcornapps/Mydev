@@ -1,0 +1,16 @@
+<apex:page standardController="account" recordSetVar="accrec" extensions="accpagination">
+  <apex:form >
+  <apex:pageBlock >
+  <apex:pageBlockTable value="{!accrec}" var="a">
+  <apex:column >
+  <apex:inputCheckbox />
+  <apex:outputLabel >{!a.name}</apex:outputLabel>
+  </apex:column>
+  </apex:pageBlockTable>
+  <apex:commandButton value="Next" action="{!Previous}"/>
+  <apex:commandButton value="First" action="{!First}"/>
+  <apex:commandButton value="Next" action="{!Next}"/>
+  <apex:commandButton value="Last" action="{!last}"/>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

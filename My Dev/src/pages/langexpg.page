@@ -1,0 +1,6 @@
+<apex:page controller="langexcls">
+<div align='center'>
+  <apex:outputLabel ><h1>richardvanhook</h1></apex:outputLabel>
+</div>
+
+</apex:page>

@@ -1,0 +1,8 @@
+<apex:page controller="inserting">
+  <apex:form >
+  Account <apex:inputText value="{!take1}"/><br/>
+  Contact <apex:inputText value="{!take2c}"/><br/>
+
+<apex:commandButton value="save" action="{!savinrec}"/>
+  </apex:form>
+</apex:page>

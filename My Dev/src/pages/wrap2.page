@@ -1,0 +1,13 @@
+<apex:page controller="wracls">
+<apex:form >
+<apex:pageBlock >
+<apex:commandButton value="delete" action="{!delrec}"/>
+<apex:commandButton value="select" action="{!selrec}"/>
+
+<apex:pageBlockTable value="{!listwrap1}" var="plp">
+
+<apex:column value="{!plp.name}"/>
+</apex:pageBlockTable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

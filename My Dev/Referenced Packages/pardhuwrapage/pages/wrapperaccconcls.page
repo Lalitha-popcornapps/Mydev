@@ -1,0 +1,20 @@
+<apex:page controller="pathakota.wraaccconcls">
+<apex:form >
+<apex:pageBlock >
+<table border="3" width="100%" cellpadding="20">
+<apex:repeat value="{!lstwrap}" var="a">
+<tr>
+<td  width="50%" style="font-family:elephant;color:purple;">
+<apex:outputLabel >{!a.acc.name}</apex:outputLabel>
+</td>
+<td >
+<apex:pageBlockTable value="{!a.lstwrapcon}" var="a1">
+<apex:column value="{!a1.name}" style="font-family:gigi; font-size:20px;color:red"/>
+</apex:pageBlockTable>
+</td>
+</tr>
+</apex:repeat>
+</table>
+</apex:pageBlock>
+</apex:form> 
+</apex:page>

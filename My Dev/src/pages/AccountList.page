@@ -1,0 +1,131 @@
+<apex:page controller="MyController" showHeader="false" sidebar="false">
+
+    <style>
+        .account {
+            margin:20px 0px;
+            padding:10px;
+            font-size:18px;
+            background-color:#f7f7f7;
+            border:1px solid #ccc;
+        }
+    </style>
+    <script type="text/javascript">
+      window.___gcfg = {
+        lang: 'en-US'
+      };
+
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+    
+    <script type="text/javascript" src="{!URLFOR($Resource.jquery)}"></script>
+    <script type="text/javascript" src="{!URLFOR($Resource.scroll)}"></script>
+    <script>
+        var setPageNumber = 1;
+        var setHasNext = true;
+
+        var offset = {!globalLimit};
+        var limit = {!globalLimit};
+
+        function showmoreOffset() {
+        
+            $("#wait").show();
+            MyController.getMoreOffset(offset, limit, function(result, event) {
+            
+            console.log('----result---'+JSON.stringify(result));
+                if (event.status) {                     
+                    if (event.status == true) {
+                    console.log('----result.records---'+result.records);
+                        var moreposts = ''; 
+                        
+                        for(var i = 0; i < result.records.length; i++) {
+                       console.log('---i--'+i);
+                            var aId = "s"+result.records[i].Id;
+                            var bId = "b"+result.records[i].Id;
+                            console.log('---aId--'+aId);
+                            moreposts += '<div class="account">'+result.records[i].Id+'&nbsp;'+result.records[i].Name+'&nbsp;'+result.records[i].Phone+'&nbsp;'+
+                            '<input type="Text" id="'+aId+'" placeholder="enter Company"/>'+'&nbsp;'+
+                            '<button onclick="hai( \''+ aId +'\',document.getElementById(\''+aId+'\').value),showtext(\''+ bId +'\',\''+ aId +'\')">Update</button>'+'&nbsp;'+'<b id="'+bId+'"  style="font-size:10px;color:green;"></b>'+
+                            '<div class="g-plusone"  data-href="http://www.perfectweddingvenue.com/'+result.records[i].Name+'" data-size="medium" ></div></div>';
+                            var myid=result.records[i].Id;
+                             console.log('---myid--'+myid);
+                          
+                        }
+                        $("#wrapper").append(moreposts);
+                        offset += limit;
+                    } 
+                } else if (event.type === 'exception') {    
+                        alert('Oops, we messed up. Something went wrong and we are terribly embarrassed by it.');
+                } else {
+                        alert('Oops, we messed up. Something went wrong and we are terribly embarrassed by it.');
+                }
+                $("#wait").hide();
+            }, {escape:true}); 
+        }
+       
+           /* function hai(myid,mytext){ 
+          alert(myid+mytext);
+        } */
+        
+        function showtext(its,ifs){
+          if(document.getElementById(ifs).value==''){
+             document.getElementById(its).innerHTML = "PLEASE ENTER TEXT";
+          }else{
+             document.getElementById(its).innerHTML = "UPDATED";
+          }
+        }
+          function hai1(rid) {
+        var myval=document.getElementById(rid).value;
+
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.MyController.updateAcc}',
+            myval, rid,
+             function(result, event) {
+                  console.log(result);
+               });
+          } 
+         /*  function hai1(rid) {
+        var myval=document.getElementById(rid).value;
+        alert(rid+myval);
+          } */
+         
+        $(document).endlessScroll({
+            fireOnce: true,
+            fireDelay: 1000,
+            bottomPixels: 50,
+            callback: function(p) {
+            console.log('---p--'+p);
+                if (setHasNext)
+                    //showmore();
+                    showmoreOffset();
+            }
+        });     
+        
+    </script>
+  <apex:form >
+    <apex:actionFunction name="hai" action="{!actnfn}" rerender="">
+            <apex:param name="one" value="" />
+            <apex:param name="two" value="" />
+        </apex:actionFunction>
+    </apex:form>  
+    <div id="wrapper">
+        <apex:repeat value="{!infiniteScrollResponse.records}" var="r" id="rpt">
+            <div class="account">
+                <apex:outputText escape="false" value="{!r['id']}"/> &nbsp;
+                <apex:outputText escape="false" value="{!r['Name']}"/>&nbsp; 
+                <apex:outputText escape="false" value="{!r['Phone']}"/>   &nbsp;
+                <apex:outputText escape="false" value="{!r['Type']}"/>&nbsp;
+                <input id="s{!r['id']}" type="text"  placeholder="enter Company"/>&nbsp;
+                <button onclick="hai1('s{!r['id']}'),showtext('b{!r['id']}','s{!r['id']}')">Update</button>&nbsp; 
+                <b id="b{!r['id']}"  style="font-size:10px;color:green;"></b>
+                <div class="g-plusone"  data-href="http://www.perfectweddingvenue.com/{!r['Name']}" data-size="medium" ></div>
+            </div>  
+        </apex:repeat>
+     
+    </div>  
+    <img id="wait" style="display:none;" src="{!URLFOR($Resource.waiting)}" height="100" width="100"/>
+   
+</apex:page>

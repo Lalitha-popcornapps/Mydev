@@ -1,0 +1,12 @@
+<apex:page Controller="standaredpicklist">
+
+
+            
+            <apex:repeat value="{!ownershipOptions}" var="s">
+            {!s} <br/>
+            </apex:repeat>
+                   
+           
+
+
+</apex:page>
